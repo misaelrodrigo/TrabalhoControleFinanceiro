@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="SQL_CREATE_USUARIO">
+        CREATE TABLE Usuario(
+        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+        email VARCHAR(50) NOT NULL,
+        usuario VARCHAR(20) NOT NULL,
+        senha VARCHAR(10) NOT NULL);
+    </string>
+    <string name="SQL_CREATE_FORMAPAG">
+        CREATE TABLE FormaPag(
+        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+        descricao VARCHAR(30) NOT NULL);
+    </string>
+    <string name="SQL_CREATE_DESPESA">
+        CREATE TABLE MovDespesa(
+        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+        descricao VARCHAR(50) NOT NULL,
+        valor NUMERIC(10,2) NOT NULL,
+        data DATE NOT NULL,
+        formapag INTEGER REFERENCES FormaPag(id),
+        usuario INTEGER REFERENCES Usuario(id));
+    </string>
+    <string name="SQL_DROP_DESPESA">
+        DROP TABLE MovDespesa;
+    </string>
+    <string name="SQL_DROP_FORMAPAG">
+        DROP TABLE FormaPag;
+    </string>
+    <string name="SQL_DROP_USUARIO">
+        DROP TABLE Usuario;
+    </string>
+
+    <string name="SQL_SELECT_DESPESA">
+        SELECT MD.descricao, FP.descricao, MD.data, MD.valor FROM MovDespesa MD
+        INNER JOIN FormaPag FP ON (FP.id = MD.formapag)
+        WHERE MD.usuario=?
+    </string>
+</resources>

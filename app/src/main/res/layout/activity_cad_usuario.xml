@@ -1,0 +1,78 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="7dip"
+    android:orientation="vertical"
+    tools:context="br.edu.integrado.trabalhomisaelrodrigo.CadUsuarioActivity">
+
+    <TextView android:text="@string/title_activity_cad_usuario" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Email:"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:id="@+id/edtNewEmail"
+        android:text="misaelrodrigo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dip"
+        android:layout_marginBottom="15dip"
+        android:imeOptions="actionNext" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Usuario:"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:id="@+id/edtNewUsuario"
+        android:text="misaelrodrigo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dip"
+        android:layout_marginBottom="15dip"
+        android:imeOptions="actionNext" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Senha:"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:id="@+id/edtNewSenha"
+        android:text="123"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dip"
+        android:layout_marginBottom="15dip"
+        android:imeOptions="actionNext" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Repetir Senha:"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:id="@+id/edtNewSenha2"
+        android:text="123"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dip"
+        android:layout_marginBottom="15dip"
+        android:imeOptions="actionDone" />
+</LinearLayout>

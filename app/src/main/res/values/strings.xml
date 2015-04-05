@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- BD Usuario
+    <string name="BdUsuarioName">Usuario</string>
+    <string name="BdUsuarioId">id</string>
+    <string name="BdUsuarioEmail">EMAIL</string>
+    <string name="BdUsuarioUsuario">USUARIO</string>
+    <string name="BdUsuarioSenha">SENHA</string>
+
+    Campos BD FormaPag
+    <string name="BdFormaName">FormaPag</string>
+    <string name="BdFormaId">id</string>
+    <string name="BdFormaDescricao">DESCRICAO</string>
+
+    Campos BD MovDespesa
+    <string name="BdDespesaName">MovDespesa</string>
+    <string name="BdDespesaId">id</string>
+    <string name="BdDespesaDescricao">DESCRICAO</string>
+    <string name="BdDespesaValor">VALOR</string>
+    <string name="BdDespesaForma">FORMAPAG</string>
+    <string name="BdDespesaUsuario">USUARIO</string>-->
+
+    <!-- Mensagem de saida-->
+    <string name="MsgCadFormaSucesso">Forma de Pagamento cadastrado com sucesso!!</string>
+    <string name="MsgCadFormaJaExiste">Forma de Pagamento já cadastrada!!</string>
+    <string name="MsgCadDespesaSucesso">Despesa cadastrado com sucesso!!</string>
+
+
+
+    <string name="app_name">TrabalhoMisaelRodrigo</string>
+    <string name="Saudacao">Bem Vindo, </string>
+    <string name="action_settings">Settings</string>
+    <string name="MenuSalvar">Salvar</string>
+    <string name="MenuCancelar">Cancelar</string>
+    <string name="MenuCadDespesa">Cadastro Despesa</string>
+    <string name="MenuCadPagmento">Cadastro Forma Pagamento</string>
+    <string name="MenuCadUsuario">Cadastro Usuario</string>
+
+    <string name="title_activity_tela_despesa">Resumo de Despesas</string>
+    <string name="title_activity_cad_despesa">Cadastro de Despensa</string>
+    <string name="title_activity_cad_usuario">Cadastro de Usuario</string>
+    <string name="title_activity_cad_pagamento">Cadastro de Forma de Pagamento</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
