@@ -1,6 +1,11 @@
 package br.edu.integrado.trabalhomisaelrodrigo.model;
 
+import android.provider.ContactsContract;
+
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Misael-Ticiane on 04/04/2015.
@@ -10,18 +15,18 @@ public class Despesa implements Serializable{
     private String descricao;
     private String dsForma;
     private Float valor;
-    private String data;
+    private Calendar data;
     private Integer usuario;
     private Integer formaPag;
 
-    public Despesa(String descricao, Float valor, String data, Integer usuario, Integer formaPag){
+    public Despesa(String descricao, Float valor, Calendar data, Integer usuario, Integer formaPag){
         this.descricao = descricao;
         this.valor = valor;
         this.data = data;
         this.usuario = usuario;
         this.formaPag = formaPag;
     }
-    public Despesa(String descricao, String dsForma, String data, Float valor){
+    public Despesa(String descricao, String dsForma, Calendar data, Float valor){
         this.descricao = descricao;
         this.valor = valor;
         this.data = data;
@@ -68,21 +73,24 @@ public class Despesa implements Serializable{
         this.formaPag = formaPag;
     }
 
-    public String getData() {
+    public Calendar getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Calendar data) {
         this.data = data;
     }
 
     @Override
     public String toString() {
-        String linha = "$d  |$f |$v |$b ";
+        SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");
+        Date data = this.data.getTime();
+
+        String linha = "Despesa: $d  ($f)\n R$ $v        Data:$b \n---------------------------------------------------------------- ";
         linha = linha.replace("$d", this.descricao);
         linha = linha.replace("$f", this.dsForma);
         linha = linha.replace("$v", this.valor.toString());
-        linha = linha.replace("$b", this.data);
+        linha = linha.replace("$b", formata.format(data));
         //return this.descricao + "| " + this.dsForma+" | "+this.valor.toString()+" | "+this.data;
         return linha;
 

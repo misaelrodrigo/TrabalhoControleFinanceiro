@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import br.edu.integrado.trabalhomisaelrodrigo.dao.DespesaDao;
@@ -20,30 +21,56 @@ import br.edu.integrado.trabalhomisaelrodrigo.model.Usuario;
 public class TelaDespesaActivity extends ActionBarActivity {
     private TextView tvSaudacao;
     private Usuario usuarioLogado;
+    private ListView lvDespesas;
+    private TextView tvTotalAtual;
+    private TextView tvTotalAnterior;
     DespesaDao despesaDao;
-    ListView lvDespesas;
     List<Despesa> listDespesa;
+    Float valorTotalAtual;
+    Float valorTotalAnterior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_despesa);
 
-        usuarioLogado = (Usuario) getIntent().getSerializableExtra("usuario");
-        tvSaudacao = (TextView) findViewById(R.id.tvSaudacao);
-        //Intent i = getIntent();
-       // usuarioLogado = i.getStringExtra("usuario");
-
-        tvSaudacao.setText("Bem Vindo, " + usuarioLogado.getUsuario().toUpperCase());
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        lvDespesas = (ListView)findViewById(R.id.lvDespesas);
+
         despesaDao = new DespesaDao(this);
-        listDespesa = despesaDao.listDespesa(usuarioLogado);
+
+        usuarioLogado = (Usuario) getIntent().getSerializableExtra("usuario");
+        tvSaudacao = (TextView) findViewById(R.id.tvSaudacao);
+        tvTotalAnterior = (TextView)findViewById(R.id.tvSaldoAterior);
+        tvTotalAtual = (TextView)findViewById(R.id.tvSaldoAtual);
+
+
+        tvSaudacao.setText("Bem Vindo, " + usuarioLogado.getUsuario().toUpperCase());
+
+        Calendar calendario = Calendar.getInstance();//instancia com a data atual.
+        Date data = calendario.getTime();// pega data do calendario e joga para data.
+
+        ///retorna total de despesas do mes atual com base no usuario e data atual
+        valorTotalAtual = despesaDao.listDespesaMes(usuarioLogado,data);
+
+        calendario.add(Calendar.MONTH, -1); //volta o calendario 1 mês.
+        data = calendario.getTime(); //pega novamente a data do calendario, agora com do mes passado.
+
+        //retorna total de despesas do mes passado com base no usuario e data mes passado.
+        valorTotalAnterior = despesaDao.listDespesaMes(usuarioLogado,data);
+
+        tvTotalAnterior.setText("R$ "+ valorTotalAnterior.toString()); //seta na activity
+        tvTotalAtual.setText("R$ "+valorTotalAtual.toString()); //seta na activity
+
+        calendario = Calendar.getInstance(); //pega novamete o calendario com data atual.
+        data = calendario.getTime(); //pega a data do calendario.
+        lvDespesas = (ListView)findViewById(R.id.lvDespesas);
+        listDespesa = despesaDao.listDespesa(usuarioLogado, data ); //lista despesas com base no usuario e data atual.
+
         ArrayAdapter<Despesa> aaDespesas =  new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listDespesa);
         lvDespesas.setAdapter(aaDespesas);
 

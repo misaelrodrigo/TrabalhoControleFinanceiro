@@ -68,7 +68,7 @@ public class UsuarioDao extends AppDao {
                 " WHERE "+ TB_FIELDS[2] +"=? AND "+ TB_FIELDS[3]+"=?";
         Cursor query = getReadableDatabase().rawQuery(lineSql, new String[]{usuario.getUsuario(), usuario.getSenha()});
         query.moveToNext();
-        Usuario usuarioCompleto = new Usuario(query.getInt(0), query.getString(1));
+        Usuario usuarioCompleto = new Usuario(query.getInt(0), query.getString(2));
         return usuarioCompleto;
     }
 }

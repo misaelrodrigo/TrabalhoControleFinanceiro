@@ -43,19 +43,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Data:"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:id="@+id/edtNewDespesaData"
-        android:layout_marginTop="15dip"
-        android:layout_marginBottom="15dip"
-        android:imeOptions="actionNext" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Forma de Pagamento:"/>
     <Spinner
         android:layout_width="match_parent"

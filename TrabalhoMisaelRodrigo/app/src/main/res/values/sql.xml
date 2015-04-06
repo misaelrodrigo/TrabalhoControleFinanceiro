@@ -34,6 +34,6 @@
     <string name="SQL_SELECT_DESPESA">
         SELECT MD.descricao, FP.descricao, MD.data, MD.valor FROM MovDespesa MD
         INNER JOIN FormaPag FP ON (FP.id = MD.formapag)
-        WHERE MD.usuario=?
+        WHERE MD.usuario=? AND MD.data BETWEEN ? AND ? ;
     </string>
 </resources>

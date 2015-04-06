@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.List;
 
 import br.edu.integrado.trabalhomisaelrodrigo.dao.DespesaDao;
@@ -26,7 +27,6 @@ import br.edu.integrado.trabalhomisaelrodrigo.model.Usuario;
 public class CadDespesaActivity extends ActionBarActivity {
     private EditText edtDescrica;
     private EditText edtValor;
-    private EditText edtData;
     private Spinner spnForma;
     private Usuario usuarioLogado;
     private List<FormaPag> formas;
@@ -44,7 +44,7 @@ public class CadDespesaActivity extends ActionBarActivity {
 
         edtDescrica = (EditText) findViewById(R.id.edtNewDespesaDescricao);
         edtValor = (EditText) findViewById(R.id.edtNewDespesaValor);
-        edtData = (EditText) findViewById(R.id.edtNewDespesaData);
+
         spnForma = (Spinner) findViewById(R.id.spnFormaPag);
 
         despesaDao = new DespesaDao(this);
@@ -83,9 +83,10 @@ public class CadDespesaActivity extends ActionBarActivity {
     public Despesa getDespesa(){
         String descricao = edtDescrica.getText().toString();
         Float valor = Float.parseFloat(edtValor.getText().toString());
-        String data = edtData.getText().toString();
+        Calendar data = Calendar.getInstance();
         Integer id_usuario = usuarioLogado.getId();
         Integer id_forma = ((FormaPag)spnForma.getSelectedItem()).getId();
+
         return new Despesa(descricao,valor,data,id_usuario,id_forma);
     }
 
