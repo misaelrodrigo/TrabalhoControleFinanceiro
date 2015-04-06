@@ -19,10 +19,11 @@ public class AppDao extends SQLiteOpenHelper{
         super(context, BD_NAME, null, BD_VERSION);
         res = context.getResources();//pŕa pegar os valores em string.
 
-        getWritableDatabase().execSQL(res.getString(R.string.SQL_DROP_DESPESA));
+        //apaga o banco
+        /*getWritableDatabase().execSQL(res.getString(R.string.SQL_DROP_DESPESA));
         getWritableDatabase().execSQL(res.getString(R.string.SQL_DROP_FORMAPAG));
         getWritableDatabase().execSQL(res.getString(R.string.SQL_DROP_USUARIO));
-        onCreate(getWritableDatabase());
+        onCreate(getWritableDatabase());*/
 
     }
 
